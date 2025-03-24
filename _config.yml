@@ -1,6 +1,6 @@
 ####  GLOBAL - Site information
 # About your website
-title: Your awesome title
+title: Print Area
 author: # *** NAME AND EMAIL INCLUDED IN RSS FEED BY DEFAULT ***
   name: &name GitHub User                 # removing &name breaks contact page
   email: &email your-email@domain.com     # removing &email breaks contact page
@@ -47,11 +47,11 @@ jekyll-98:
   # icon will default to "document"
   # see assets/icons for icon choices
   site_links:
-  - title: Example 
-    url: http://example.com
-    target: _blank            # optional
+  - title: Daring Ventures 
+    url: http://daringventures.vc
+    target:             # optional
     icon: html                # optional
-    alt: 'This is an example' # alt text is shown in start menu - long strings won't wrap and might break menu
+    alt: 'Homepage' # alt text is shown in start menu - long strings won't wrap and might break menu
 
   ### CONTACT PAGE
   # social links from the social_links section are automatically added to contact page (if enabled)
@@ -74,9 +74,9 @@ jekyll-98:
   # generate social links in footer
   # only 5 will safely fit on small phones
   social_links:
-    github:  queenkjuul
-    youtube: queenkjuul69
-    twitch: queenkjuul
+    github:  false
+    youtube: false
+    twitch: false
     # twitter: jekyllrb
     # devto: jekyll
     # dribbble: jekyll
