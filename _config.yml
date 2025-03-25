@@ -2,8 +2,8 @@
 # About your website
 title: Print Area
 author: # *** NAME AND EMAIL INCLUDED IN RSS FEED BY DEFAULT ***
-  name: &name GitHub User                 # removing &name breaks contact page
-  email: &email your-email@domain.com     # removing &email breaks contact page
+name: &name GitHub User                 # removing &name breaks contact page
+email: &email your-email@domain.com     # removing &email breaks contact page
 description: > # > means to ignore newlines until next section
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
