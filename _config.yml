@@ -52,11 +52,15 @@ jekyll-98:
     target:             # optional
     icon: html                # optional
     alt: 'Homepage' # alt text is shown in start menu - long strings won't wrap and might break menu
-
+ - title: Schedule Call 
+    url: https://calendly.com/joseph-daringventures
+    target:             # optional
+    icon: calendar                # optional
+    alt: 'Call Joe' # alt text is shown in start menu - long strings won't wrap and might break menu
   ### CONTACT PAGE
   # social links from the social_links section are automatically added to contact page (if enabled)
   # only defined fields are displayed
-  contact:        # comment to omit page altogether
+  contact: #       # comment to omit page altogether
     name: *name   # reuses values from above
     email: *email
     phone: phone number if you're spicy 
