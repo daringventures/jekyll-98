@@ -38,7 +38,6 @@ jekyll-98:
   # should probably try and keep total icons (desktop_categories and site_links)
   # to 7 or less total
   desktop_categories:
-    - posts
 
   ### DESKTOP / START MENU LINKS
   # site_links generate desktop icons (if device width allows)
@@ -52,11 +51,13 @@ jekyll-98:
     target:             # optional
     icon: html                # optional
     alt: 'Homepage' # alt text is shown in start menu - long strings won't wrap and might break menu
+ 
  - title: Schedule Call 
     url: https://calendly.com/joseph-daringventures
     target:             # optional
     icon: calendar                # optional
     alt: 'Call Joe' # alt text is shown in start menu - long strings won't wrap and might break menu
+ 
   ### CONTACT PAGE
   # social links from the social_links section are automatically added to contact page (if enabled)
   # only defined fields are displayed
