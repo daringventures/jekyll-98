@@ -1,7 +1,7 @@
 ####  GLOBAL - Site information
 # About your website
 title: Print Area
-author: # *** NAME AND EMAIL INCLUDED IN RSS FEED BY DEFAULT ***
+author:
   name: &name GitHub User                 # removing &name breaks contact page
   email: &email your-email@domain.com     # removing &email breaks contact page
 description: > # > means to ignore newlines until next section
