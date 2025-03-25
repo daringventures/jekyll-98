@@ -2,14 +2,10 @@
 # About your website
 title: Print Area
 author:
-  name: &name GitHub User                 # removing &name breaks contact page
-  email: &email your-email@domain.com     # removing &email breaks contact page
-description: > # > means to ignore newlines until next section
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description. 
-  It will also appear on the site About page. 
-# url:  https://jekyll-98.github.io             # will try to use github pages url if omitted
+  name: GitHub User
+  email: your-email@domain.com
+description: >
+  Write an awesome description for your new site here.
 
 #### SETTINGS - Sitewide preferences
 remote_theme: queenkjuul/jekyll-98
