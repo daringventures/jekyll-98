@@ -47,7 +47,7 @@ jekyll-98:
     icon: html                # optional
     alt: 'Homepage' # alt text is shown in start menu - long strings won't wrap and might break menu
  
- - title: Schedule Call 
+  - title: Schedule Call 
     url: https://calendly.com/joseph-daringventures
     target:             # optional
     icon: calendar                # optional
