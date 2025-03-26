@@ -1,10 +1,15 @@
 ####  GLOBAL - Site information
 # About your website
-author:
-  name: GitHub User
-  email: your-email@domain.com
-description: >
-  Write an awesome description for your new site here.
+title: Your awesome title
+author: # *** NAME AND EMAIL INCLUDED IN RSS FEED BY DEFAULT ***
+  name: &name GitHub User                 # removing &name breaks contact page
+  email: &email your-email@domain.com     # removing &email breaks contact page
+description: > # > means to ignore newlines until next section
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description. 
+  It will also appear on the site About page. 
+# url:  https://jekyll-98.github.io             # will try to use github pages url if omitted
 
 #### SETTINGS - Sitewide preferences
 remote_theme: queenkjuul/jekyll-98
@@ -33,6 +38,7 @@ jekyll-98:
   # should probably try and keep total icons (desktop_categories and site_links)
   # to 7 or less total
   desktop_categories:
+    - posts
 
   ### DESKTOP / START MENU LINKS
   # site_links generate desktop icons (if device width allows)
@@ -41,19 +47,16 @@ jekyll-98:
   # icon will default to "document"
   # see assets/icons for icon choices
   site_links:
-  - title: Daring Ventures 
-    url: http://daringventures.vc
+  - title: Example 
+    url: http://example.com
+    target: _blank            # optional
     icon: html                # optional
-    alt: 'Homepage' # alt text is shown in start menu - long strings won't wrap and might break menu
-  - title: Schedule Call
-    url: https://calendly.com/joseph-daringventures
-    icon: calendar                # optional
-    alt: 'Call Joe' # alt text is shown in start menu - long strings won't wrap and might break menu
- 
+    alt: 'This is an example' # alt text is shown in start menu - long strings won't wrap and might break menu
+
   ### CONTACT PAGE
   # social links from the social_links section are automatically added to contact page (if enabled)
   # only defined fields are displayed
-  contact: #       # comment to omit page altogether
+  contact:        # comment to omit page altogether
     name: *name   # reuses values from above
     email: *email
     phone: phone number if you're spicy 
@@ -71,9 +74,9 @@ jekyll-98:
   # generate social links in footer
   # only 5 will safely fit on small phones
   social_links:
-    github:  false
-    youtube: false
-    twitch: false
+    github:  queenkjuul
+    youtube: queenkjuul69
+    twitch: queenkjuul
     # twitter: jekyllrb
     # devto: jekyll
     # dribbble: jekyll
