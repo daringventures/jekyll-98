@@ -1,129 +1,51 @@
-####  GLOBAL - Site information
-# About your website
-title: Your awesome title
-author: # *** NAME AND EMAIL INCLUDED IN RSS FEED BY DEFAULT ***
-  name: &name GitHub User                 # removing &name breaks contact page
-  email: &email your-email@domain.com     # removing &email breaks contact page
-description: > # > means to ignore newlines until next section
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description. 
-  It will also appear on the site About page. 
-# url:  https://jekyll-98.github.io             # will try to use github pages url if omitted
+# Sample workflow for building and deploying a Jekyll site to GitHub Pages
+name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
-#### SETTINGS - Sitewide preferences
-remote_theme: queenkjuul/jekyll-98
-show_excerpts: true       # mostly works, see README
-show_categories: true
-paginate:      3          # set to a number of posts per page 
-                          # only 3 works well on small mobile screens
-                          # set to false to disable pagination (all posts listed on home page)
-paginate_path: /page/:num # probably shouldn't touch
-# google_analytics:       # input your google analytics key for tracking
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
 
-#### THEME - Controls for desktop and extra pages
-jekyll-98:
-  date_format: "%b %-d, %Y" # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
-  add_titles: false # you probably want this, it's only useful for my own website to turn it on
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-  ### SITE ICON
-  # select site icon which will be used for homepage links 
-  # on the desktop and in the start menu
-  # see assets/icons for choices, omit extension
-  icon: computer
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
-  ### DESKTOP FOLDERS
-  # select which of your post categories should have its own desktop icon
-  # should probably try and keep total icons (desktop_categories and site_links)
-  # to 7 or less total
-  desktop_categories:
-    - posts
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
-  ### DESKTOP / START MENU LINKS
-  # site_links generate desktop icons (if device width allows)
-  # as well as entries in the Start menu (all widths)
-  # must have at least title and url
-  # icon will default to "document"
-  # see assets/icons for icon choices
-  site_links:
-  - title: Example 
-    url: http://example.com
-    target: _blank            # optional
-    icon: html                # optional
-    alt: 'This is an example' # alt text is shown in start menu - long strings won't wrap and might break menu
-
-  ### CONTACT PAGE
-  # social links from the social_links section are automatically added to contact page (if enabled)
-  # only defined fields are displayed
-  contact:        # comment to omit page altogether
-    name: *name   # reuses values from above
-    email: *email
-    phone: phone number if you're spicy 
-    address: 
-      - 1234 Street Avenue
-      - Assigned living quarters number X
-      - City, Unit bigger than city, country, postal related code 
-      - You can actually add as many lines as your little heart desires
-    other:
-      - custom info can go here
-      - each line gets rendered
-      - layout not optimized for long lists
-
-  ### SOCIAL MEDIA / QUICK LAUNCH
-  # generate social links in footer
-  # only 5 will safely fit on small phones
-  social_links:
-    github:  queenkjuul
-    youtube: queenkjuul69
-    twitch: queenkjuul
-    # twitter: jekyllrb
-    # devto: jekyll
-    # dribbble: jekyll
-    # facebook: jekyll
-    # flickr:   jekyll
-    # instagram: jekyll
-    # linkedin: jekyll
-    # pinterest: jekyll
-    # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
-    # youtube_channel_name: CloudCannon
-    # telegram: jekyll
-    # googleplus: +jekyll
-    # keybase: jekyll
-    # email: jekyll@jekyll.jekyll
-
-    # Mastodon instances
-    # mastodon:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-    # GitLab instances
-    # gitlab:
-    # - username: jekyll
-    #   instance: example.com
-    # - username: jekyll2
-    #   instance: example.com
-
-  ### ABOUT PAGE
-  # add personal details to about page if you like
-  # lines are rendered as bulleted list
-  about:
-    - Live long and prosper, loves \\//_
-
-#### PLUGINS - Add what you need, but don't remove defaults!
-plugins:
-  - jekyll-paginate       # theme default
-  - jekyll-category-pages # theme-default
-  - jekyll-feed           # theme-default
-
-#### DEFAULTS - Only for theme website, you can ignore/remove
-defaults:
-  -
-    scope:
-      path: "_posts"
-    values:
-      layout: "post"
-      categories:
-        - posts
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
