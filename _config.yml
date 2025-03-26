@@ -43,13 +43,10 @@ jekyll-98:
   site_links:
   - title: Daring Ventures 
     url: http://daringventures.vc
-    target:             # optional
     icon: html                # optional
     alt: 'Homepage' # alt text is shown in start menu - long strings won't wrap and might break menu
- 
-  - title: Schedule Call 
+  - title: Schedule Call
     url: https://calendly.com/joseph-daringventures
-    target:             # optional
     icon: calendar                # optional
     alt: 'Call Joe' # alt text is shown in start menu - long strings won't wrap and might break menu
  
